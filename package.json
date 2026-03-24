@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1",
+    "axios": "^1.13.6",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "fs-extra": "^11.3.4",
+    "moment-timezone": "^0.6.1",
+    "soundcloud-downloader": "^1.0.0",
+    "ytdl-core-enhanced": "^2.2.2"
+  }
+}

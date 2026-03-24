@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<title>Hoàng Bảo | Profile</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta property="og:title" content="Hoàng Bảo">
+<meta property="og:description" content="Trang cá nhân Hoàng Bảo">
+<meta property="og:image" content="https://i.imgur.com/l5UJMh8.png">
+<link rel="icon" href="https://i.imgur.com/l5UJMh8.png">
+
+<link rel="stylesheet" href="https://cdn.leanhduc.pro.vn/font-awesome/pro-5.15.3/css/all.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="chat-style.css">
+
+</head>
+<body>
+
+<!-- BACKGROUND -->
+<video class="bg-video" autoplay muted loop playsinline>
+  <source src="https://files.catbox.moe/3sgs0o.mp4">
+</video>
+<div class="bg-overlay"></div>
+
+<!-- PROFILE CARD -->
+<div class="profile">
+  <div class="avatar">
+    <img src="https://files.catbox.moe/8wf4e7.jpg">
+  </div>
+  <div class="name">Hoàng Thế Bảo 🌸</div>
+  <div class="bio">Cho Thuê Bot Giá Rẻ 🌸</div>
+
+  <div class="box facebook" onclick="window.open('https://www.facebook.com/hoang.the.bao.348976','_blank')">
+    <i class="fab fa-facebook"></i> Facebook
+  </div>
+  <div class="box tiktok" onclick="window.open('https://www.tiktok.com/@th.bo.hong','_blank')">
+    <i class="fab fa-tiktok"></i> TikTok
+  </div>
+  <div class="box zalo" onclick="window.open('https://zalo.me/0342101746','_blank')">
+    <i class="fas fa-comment"></i> Zalo
+  </div>
+  <div class="box mbbank" onclick="navigator.clipboard.writeText('0342101746')">
+    <i class="fas fa-university"></i> MB Bank
+  </div>
+</div>
+
+<!-- SPOTIFY MINI -->
+<div class="spotify">
+  <div class="song-title" id="title">🎧 Nhạc nền</div>
+  <div class="song-artist">Hoàng Bảo</div>
+
+  <div class="progress" onclick="seek(event)">
+    <div class="progress-bar" id="bar"></div>
+  </div>
+  <div class="time">
+    <span id="current">0:00</span>
+    <span id="duration">0:00</span>
+  </div>
+
+  <div class="controls">
+    <i class="fas fa-backward" onclick="prevSong()"></i>
+    <div class="play" onclick="togglePlay()">
+      <i id="pp" class="fas fa-play"></i>
+    </div>
+    <i class="fas fa-forward" onclick="nextSong()"></i>
+  </div>
+</div>
+
+<audio id="audio" preload="auto"></audio>
+
+<!-- Chat Widget AI -->
+<div class="chat-widget-container">
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="header-content">
+                <h1>cubi-Chan 👀</h1>
+                <p class="status">online</p>
+            </div>
+            <button class="minimize-btn" onclick="toggleChat()">−</button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                <div class="message-content">
+                    <p>Chào cậu! Mình là cubi-Chan 😊 Có gì mình có thể giúp cậu không? 💕</p>
+                </div>
+                <span class="timestamp">Bây giờ</span>
+            </div>
+        </div>
+
+        <div class="chat-input-area">
+            <div class="input-wrapper">
+                <input 
+                    type="text" 
+                    class="chat-input" 
+                    id="chatInput"
+                    placeholder="Nhắn tin..."
+                    autocomplete="off"
+                >
+                <button class="send-btn" onclick="sendMessage()">
+                    <span>Gửi</span>
+                </button>
+            </div>
+            <div class="typing-indicator" id="typingIndicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .chat-widget-container {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 9999;
+    }
+
+    @media (max-width: 600px) {
+        .chat-widget-container {
+            bottom: 0;
+            right: 0;
+            left: 0;
+            width: 100%;
+        }
+        .chat-container {
+            width: 100% !important;
+            height: 100vh !important;
+            border-radius: 0 !important;
+        }
+    }
+</style>
+
+<script src="player.js"></script>
+<script src="chat.js"></script>
+</body>
+</html>

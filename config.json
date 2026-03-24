@@ -1,0 +1,5 @@
+{
+  "stability_ai": "sk-your-stability-ai-key-here",
+  "instructions": "Để có ảnh AI thật: 1. Đăng ký tại https://platform.stability.ai/ 2. Lấy API key 3. Thay thế 'sk-your-stability-ai-key-here' bằng key thật của bạn",
+  "other_apis": {}
+}

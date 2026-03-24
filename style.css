@@ -1,0 +1,291 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Inter;
+}
+
+body{
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* VIDEO BACKGROUND */
+.bg-video{
+  position:fixed;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  z-index:-2;
+}
+
+.bg-overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.45);
+  z-index:-1;
+}
+
+.profile{
+  position:relative;
+
+  max-width:430px; /* tăng từ 420 → 480 */
+  width:92%;       /* đảm bảo full hơn trên mobile */
+
+  margin:50px auto;
+  padding:30px 20px; /* tăng padding cho đỡ mỏng */
+
+  border-radius:30px;
+  text-align:center;
+  overflow:hidden;
+  z-index:1;
+}
+/* VIỀN GRADIENT CHẠY */
+.profile::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:30px;
+
+  background:linear-gradient(
+    270deg,
+    #ff00cc,
+    #3333ff,
+    #00ffcc,
+    #ffcc00,
+    #ff00cc
+  );
+
+  background-size:400% 400%;
+  animation:gradientMove 6s linear infinite;
+
+  filter:blur(8px);
+  opacity:.9;
+
+  z-index:-2;
+}
+
+/* LỚP NỀN KÍNH */
+.profile::after{
+  content:"";
+  position:absolute;
+  inset:2px;
+  border-radius:26px;
+
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(15px);
+  -webkit-backdrop-filter:blur(15px);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.5),
+    inset 0 0 10px rgba(255,255,255,0.2);
+
+  z-index:-1;
+}
+
+/* ANIMATION */
+@keyframes gradientMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+
+/* AVATAR */
+.avatar img{
+  width:170px;
+  height:170px;
+  border-radius:50%;
+  border:4px solid rgba(255,255,255,0.6);
+  object-fit:cover;
+  margin-top:10px;
+  box-shadow:0 0 25px rgba(24,119,242,0.6);
+  transition:.3s;
+}
+
+.avatar img:hover{
+  transform:scale(1.05);
+}
+
+/* NAME */
+.name{
+  font-size:28px;
+  font-weight:600;
+  margin-top:10px;
+  color:#fff;
+}
+
+/* LINKS */
+.box{
+  width:88%;
+  margin:15px auto;
+  padding:17px 20px;
+  border-radius:22px;
+  color:#fff;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  gap:18px;
+  font-size:19px;
+  transition:.3s;
+  font-weight:500;
+  box-shadow:0 4px 12px rgba(0,0,0,.2);
+}
+
+.box:hover{
+  transform:scale(1.06);
+  box-shadow:0 6px 16px rgba(0,0,0,.3);
+}
+
+.box i{
+  font-size:28px;
+}
+
+.facebook{
+  background:linear-gradient(135deg,#1877f2,#0a66c2);
+}
+
+.tiktok{
+  background:linear-gradient(135deg,#000,#333);
+}
+
+.zalo{
+  background:linear-gradient(135deg,#0064f7,#0050c8);
+}
+
+.mbbank{
+  background:linear-gradient(135deg,#1f00cf,#1600a3);
+}
+
+/* SPOTIFY MINI */
+.spotify{
+  position:fixed;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:420px;
+  background:#181818;
+  color:#fff;
+  border-radius:25px;
+  padding:25px;
+  box-shadow:0 0 40px rgba(0,0,0,.8);
+  z-index:999;
+  cursor:grab;
+  user-select:none;
+}
+
+.spotify:active{
+  cursor:grabbing;
+}
+
+.song-title{
+  font-size:20px;
+  font-weight:600;
+  margin-bottom:5px;
+}
+
+.song-artist{
+  font-size:14px;
+  color:#bbb;
+}
+
+.progress{
+  width:100%;
+  height:7px;
+  background:#404040;
+  border-radius:10px;
+  cursor:pointer;
+  margin:12px 0 6px;
+}
+
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:#1db954;
+  border-radius:10px;
+}
+
+.time{
+  display:flex;
+  justify-content:space-between;
+  font-size:13px;
+  color:#aaa;
+}
+
+.controls{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:25px;
+  margin-top:15px;
+}
+
+.controls i{
+  font-size:22px;
+  cursor:pointer;
+  color:#aaa;
+  transition:.2s;
+}
+
+.controls i:hover{
+  color:#fff;
+  transform:scale(1.1);
+}
+
+.play{
+  background:#1db954;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#000;
+  font-size:24px;
+  transition:.3s;
+  box-shadow:0 4px 10px rgba(29,185,84,.3);
+}
+
+.play:hover{
+  box-shadow:0 6px 15px rgba(29,185,84,.5);
+}
+
+/* RESPONSIVE */
+@media(max-width:480px){
+  .profile{
+    max-width:95%;
+    margin:20px auto;
+    padding:25px 15px;
+  }
+
+  .avatar img{
+    width:180px;
+    height:180px;
+  }
+
+  .name{
+    font-size:30px;
+  }
+
+  .box{
+    width:92%;
+    padding:16px;
+    font-size:20px;
+    gap:20px;
+  }
+
+  .box i{
+    font-size:30px;
+  }
+
+  .spotify{
+    width:95%;
+    max-width:460px;
+    padding:20px;
+  }
+}
+
+@media(max-width:360px){
+  .name{font-size:26px}
+  .box{font-size:18px}
+}
