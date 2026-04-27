@@ -1,0 +1,8 @@
+apikey.json
+.env
+node_modules/
+dist/
+build/
+.gradle/
+android/build/
+android/app/build/

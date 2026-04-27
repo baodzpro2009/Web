@@ -1,0 +1,21 @@
+{
+  "name": "Ví Riêng",
+  "short_name": "Ví Riêng",
+  "start_url": ".",
+  "scope": ".",
+  "display": "standalone",
+  "background_color": "#0f766e",
+  "theme_color": "#0f766e",
+  "icons": [
+    {
+      "src": "assets/apple-touch-icon.svg",
+      "sizes": "256x256",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "assets/favicon.svg",
+      "sizes": "256x256",
+      "type": "image/svg+xml"
+    }
+  ]
+}

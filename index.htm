@@ -1,472 +1,287 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Trường THPT Hòa Phú</title>
-<meta name="description" content="Website giới thiệu Trường THPT Hòa Phú với thông tin đào tạo, thông báo, tuyển sinh và hoạt động học sinh.">
-<meta property="og:title" content="Trường THPT Hòa Phú">
-<meta property="og:description" content="Môi trường học tập kỷ cương, sáng tạo và nhân ái dành cho học sinh THPT Hòa Phú.">
-<meta property="og:type" content="website">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css">
-<style>
-    /* Ép font chữ chuẩn tiếng Việt */
-    body { font-family: 'Be Vietnam Pro', sans-serif !important; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ví Riêng | Quản lý tài chính cá nhân</title>
+  <meta
+    name="description"
+    content="Ví Riêng là ứng dụng quản lý tài chính cá nhân giúp ghi chép chi tiêu nhanh, theo dõi ngân sách và xem thống kê rõ ràng."
+  >
+  <meta name="cubi-api-base-url" content="http://localhost:3000">
+  <meta name="theme-color" content="#0f766e">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Ví Riêng">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.svg">
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="manifest" href="assets/manifest.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/finance-app.css">
+  <script src="assets/js/ai-assistant.js" defer></script>
+  <script src="assets/js/finance-app.js" defer></script>
 </head>
-<body>
-  <div class="announcement-bar">
-    <div class="announcement-track">
-      <span>📢 Thông báo: Lịch nghỉ lễ 30/4 và 1/5 bắt đầu từ thứ Bảy tuần này.</span>
-      <span>🎓 Ôn tập tốt nghiệp THPT khối 12 diễn ra vào 19:00 mỗi tối tại thư viện.</span>
-      <span>🏫 Tuần lễ trải nghiệm câu lạc bộ mở cửa cho toàn bộ học sinh từ ngày 18/04.</span>
-      <span>📢 Thông báo: Lịch nghỉ lễ 30/4 và 1/5 bắt đầu từ thứ Bảy tuần này.</span>
-      <span>🎓 Ôn tập tốt nghiệp THPT khối 12 diễn ra vào 19:00 mỗi tối tại thư viện.</span>
-      <span>🏫 Tuần lễ trải nghiệm câu lạc bộ mở cửa cho toàn bộ học sinh từ ngày 18/04.</span>
-    </div>
-  </div>
+<body data-theme="light">
+  <div class="backdrop backdrop-a" aria-hidden="true"></div>
+  <div class="backdrop backdrop-b" aria-hidden="true"></div>
 
-  <div class="page-shell">
-    <header class="hero">
-      <nav class="topbar">
-        <div class="brand">
-          <div class="brand-mark">HP</div>
-          <div>
-            <p class="brand-label">TRƯỜNG THPT</p>
-            <h1>Hòa Phú</h1>
-          </div>
+  <main class="app-shell">
+    <section class="screen splash-screen" data-screen="splash">
+      <div class="splash-mark">VR</div>
+      <h1>Ví Riêng</h1>
+      <p>Quản lý tài chính cá nhân gọn, sáng và dễ kiểm soát mỗi ngày.</p>
+    </section>
+
+    <section class="screen onboarding-screen" data-screen="onboarding">
+      <div class="onboarding-card">
+        <div class="onboarding-slides">
+          <article class="onboarding-slide is-active" data-index="0">
+            <div class="onboarding-visual visual-balance">Thu chi</div>
+            <h2>Ghi chép tiền ra vào trong vài giây.</h2>
+            <p>Thêm giao dịch thật nhanh, tự gợi ý danh mục và lưu lịch sử theo đúng nhịp dùng hằng ngày.</p>
+          </article>
+          <article class="onboarding-slide" data-index="1">
+            <div class="onboarding-visual visual-budget">Ngân sách</div>
+            <h2>Biết mình còn bao nhiêu để tiêu.</h2>
+            <p>Đặt giới hạn cho ăn uống, di chuyển, giải trí hay học tập để tránh chi quá tay giữa tháng.</p>
+          </article>
+          <article class="onboarding-slide" data-index="2">
+            <div class="onboarding-visual visual-insight">Biểu đồ</div>
+            <h2>Xem thống kê rõ ràng, không rối.</h2>
+            <p>Biểu đồ, so sánh tháng này với tháng trước và nhắc nhở thông minh giúp kiểm soát tiền tốt hơn.</p>
+          </article>
         </div>
 
-        <div class="nav-actions">
-          <div class="nav-links">
-            <a href="index.htm" class="nav-link active">Trang chủ</a>
-            <a href="pages/gioi-thieu.htm" class="nav-link">Giới thiệu</a>
-            <a href="pages/dao-tao.htm" class="nav-link">Đào tạo</a>
-            <a href="pages/thoi-khoa-bieu.htm" class="nav-link">Thời khóa biểu</a>
-            <a href="pages/tuyen-sinh.htm" class="nav-link">Tuyển sinh</a>
-            <a href="pages/thong-bao.htm" class="nav-link">Thông báo</a>
-            <a href="pages/van-ban.htm" class="nav-link">Văn bản</a>
-            <a href="pages/thu-vien.htm" class="nav-link">Thư viện ảnh</a>
-            <a href="pages/lien-he.htm" class="nav-link">Liên hệ</a>
-          </div>
-          <button class="theme-toggle" id="dark-mode-toggle" type="button" aria-label="Bật hoặc tắt chế độ tối">
-            <span class="theme-toggle-icon">◐</span>
-            <span>Dark Mode</span>
-          </button>
-        </div>
-      </nav>
-
-      <section class="hero-content" id="trang-chu">
-        <div class="hero-copy">
-          <p class="eyebrow">Kiến tạo tương lai từ nền tảng vững chắc</p>
-          <h2>Trường Trung Học Phổ Thông Hòa Phú</h2>
-          <p class="hero-text">
-            Xây dựng môi trường giáo dục hiện đại, kỷ cương và nhân văn, nơi học sinh được phát triển
-            toàn diện về tri thức, kỹ năng và trách nhiệm với cộng đồng.
-          </p>
-
-          <div class="hero-actions">
-            <a class="btn btn-primary ripple-btn" href="pages/tuyen-sinh.htm">Thông tin tuyển sinh</a>
-            <a class="btn btn-secondary ripple-btn" href="pages/thong-bao.htm">Xem thông báo mới</a>
-          </div>
-
-          <div class="hero-stats">
-            <article>
-              <strong class="stat-number" data-target="20" data-suffix="+">0</strong>
-              <span>Năm xây dựng và phát triển</span>
-            </article>
-            <article>
-              <strong class="stat-number" data-target="1200" data-suffix="+">0</strong>
-              <span>Học sinh đang theo học</span>
-            </article>
-            <article>
-              <strong class="stat-number" data-target="60" data-suffix="+">0</strong>
-              <span>Giáo viên và cán bộ</span>
-            </article>
-          </div>
+        <div class="onboarding-dots" id="onboardingDots">
+          <span class="is-active"></span>
+          <span></span>
+          <span></span>
         </div>
 
-        <aside class="hero-panel">
-          <div class="panel-card panel-highlight">
-            <span class="panel-tag">Thông điệp</span>
-            <h3>Học để trưởng thành, rèn để cống hiến</h3>
-            <p>
-              Nhà trường chú trọng chất lượng học tập song song với rèn luyện đạo đức,
-              kỹ năng sống và tinh thần phụng sự.
-            </p>
-          </div>
-
-          <div class="panel-card countdown-card">
-            <span class="panel-tag">Đếm ngược sự kiện</span>
-            <h3>Kỳ thi THPT Quốc gia</h3>
-            <p class="countdown-label">Đếm ngược đến ngày 11/06/2026</p>
-            <div class="countdown" data-countdown="2026-06-11T00:00:00">
-              <div><strong id="days">00</strong><span>Ngày</span></div>
-              <div><strong id="hours">00</strong><span>Giờ</span></div>
-              <div><strong id="minutes">00</strong><span>Phút</span></div>
-              <div><strong id="seconds">00</strong><span>Giây</span></div>
-            </div>
-          </div>
-        </aside>
-      </section>
-
-      <div class="hero-banner">
-        <div class="hero-banner-overlay glass-card">
-          <p class="section-kicker">Slogan</p>
-          <h3>Vững tri thức, sáng tương lai</h3>
-          <p>
-            Không gian học tập xanh, thân thiện và kỷ cương, tạo điều kiện để mỗi học sinh phát huy tốt nhất năng lực của mình.
-          </p>
+        <div class="onboarding-actions">
+          <button class="ghost-btn" id="skipOnboarding" type="button">Bỏ qua</button>
+          <button class="primary-btn" id="nextOnboarding" type="button">Tiếp tục</button>
         </div>
       </div>
-    </header>
+    </section>
 
-    <main>
-      <section class="section intro" id="gioi-thieu">
-        <div class="section-heading">
-          <p class="section-kicker">Giới thiệu</p>
-          <h2>Ngôi trường nuôi dưỡng tri thức và nhân cách</h2>
+    <section class="screen screen-active home-screen" data-screen="home">
+      <header class="screen-header">
+        <div>
+          <p class="eyebrow">Tổng quan</p>
+          <h2>Ví của tôi</h2>
         </div>
+        <button class="icon-btn" data-open-screen="settings" type="button">Cài đặt</button>
+      </header>
 
-        <div class="intro-grid">
-          <article class="card card-large glass-card">
-            <h3>Tầm nhìn</h3>
-            <p>
-              Trở thành môi trường giáo dục đáng tin cậy, nơi mỗi học sinh được khơi dậy năng lực cá nhân,
-              tinh thần tự học và khát vọng vươn lên trong học tập lẫn cuộc sống.
-            </p>
-          </article>
+      <section id="summaryHero"></section>
+      <section id="homeInsightGrid" class="dashboard-grid"></section>
 
-          <article class="card glass-card">
-            <h3>Sứ mệnh</h3>
-            <p>
-              Đồng hành cùng học sinh trên hành trình trưởng thành bằng nền giáo dục kỷ cương, sáng tạo
-              và giàu tính nhân văn.
-            </p>
-          </article>
-
-          <article class="card glass-card">
-            <h3>Giá trị cốt lõi</h3>
-            <p>
-              Trách nhiệm, tôn trọng, đoàn kết, chủ động và không ngừng đổi mới trong dạy học.
-            </p>
-          </article>
+      <section class="stack-section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Nhắc nhở</p>
+            <h3>Tiền cần để ý hôm nay</h3>
+          </div>
         </div>
+        <div class="feed-list" id="reminderList"></div>
       </section>
 
-      <section class="section">
-        <div class="section-heading">
-          <p class="section-kicker">Tiện ích nhanh</p>
-          <h2>Những mục quan trọng dành cho học sinh và phụ huynh</h2>
+      <section class="stack-section">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Gần đây</p>
+            <h3>Giao dịch mới nhất</h3>
+          </div>
+          <button class="ghost-btn compact-btn" data-open-screen="history" type="button">Xem hết</button>
         </div>
-        <div class="link-grid">
-          <a class="card glass-card" href="pages/tuyen-sinh.htm"><h3>Tuyển sinh</h3><p>Xem hồ sơ, mốc thời gian, quy trình nhập học và các câu hỏi thường gặp.</p></a>
-          <a class="card glass-card" href="pages/lich-cong-tac.htm"><h3>Lịch công tác</h3><p>Theo dõi lịch thi, lịch họp phụ huynh và kế hoạch hoạt động toàn trường.</p></a>
-          <a class="card glass-card" href="pages/ban-giam-hieu.htm"><h3>Ban giám hiệu</h3><p>Tìm hiểu thông tin lãnh đạo nhà trường và các tổ chuyên môn.</p></a>
-          <a class="card glass-card" href="pages/van-ban.htm"><h3>Thư viện văn bản</h3><p>Tra cứu nội quy, kế hoạch năm học, biểu mẫu và tài liệu quan trọng.</p></a>
-        </div>
+        <div class="feed-list" id="recentList"></div>
       </section>
+    </section>
 
-      <section class="section programs" id="dao-tao">
-        <div class="section-heading">
-          <p class="section-kicker">Đào tạo</p>
-          <h2>Các định hướng học tập tại trường</h2>
+    <section class="screen add-screen" data-screen="add">
+      <header class="screen-header">
+        <div>
+          <p class="eyebrow">Thêm giao dịch</p>
+          <h2>Ghi chi tiêu thật nhanh</h2>
         </div>
+      </header>
 
-        <div class="program-grid">
-          <article class="program-card glass-card">
-            <h3>Khối văn hóa</h3>
-            <p>
-              Tăng cường nền tảng các môn học cốt lõi, chú trọng phương pháp tự học và ôn tập theo năng lực.
-            </p>
-          </article>
-
-          <article class="program-card glass-card">
-            <h3>Hướng nghiệp</h3>
-            <p>
-              Tổ chức tư vấn nghề nghiệp, định hướng chọn ngành, chọn trường và chuẩn bị cho kỳ thi tốt nghiệp THPT.
-            </p>
-          </article>
-
-          <article class="program-card glass-card">
-            <h3>Hoạt động trải nghiệm</h3>
-            <p>
-              Khuyến khích học sinh tham gia ngoại khóa, công tác đoàn thể, kỹ năng mềm và hoạt động cộng đồng.
-            </p>
-          </article>
+      <section class="card form-card">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Thêm nhanh</p>
+            <h3>Nhập như bạn vẫn ghi nhớ hằng ngày.</h3>
+          </div>
         </div>
-      </section>
-
-      <section class="section schedule" id="thoi-khoa-bieu">
-        <div class="section-heading">
-          <p class="section-kicker">Smart Schedule</p>
-          <h2>Tra cứu thời khóa biểu nhanh theo lớp hoặc giáo viên</h2>
-        </div>
-
-        <div class="schedule-toolbar">
-          <label class="field">
-            <span>Lớp</span>
-            <select id="classFilter">
-              <option value="all">Tất cả lớp</option>
-              <option value="10A1">10A1</option>
-              <option value="11A2">11A2</option>
-              <option value="12A3">12A3</option>
-            </select>
+        <div class="quick-chip-row" id="quickAddChips"></div>
+        <form id="quickEntryForm" class="quick-form">
+          <label class="field-stack">
+            <span>Nội dung</span>
+            <input id="entryTitle" name="title" type="text" placeholder="Ví dụ: ăn sáng 30k, lương tháng 4..." required>
           </label>
 
-          <label class="field">
-            <span>Giáo viên</span>
-            <select id="teacherFilter">
-              <option value="all">Tất cả giáo viên</option>
-              <option value="Nguyễn Thị Lan">Nguyễn Thị Lan</option>
-              <option value="Trần Minh Quân">Trần Minh Quân</option>
-              <option value="Phạm Thu Hà">Phạm Thu Hà</option>
-              <option value="Lê Hoàng Nam">Lê Hoàng Nam</option>
+          <div class="helper-box" id="smartHint">Nhập mô tả như "trà sữa 45k" để ứng dụng tự gợi ý danh mục và số tiền.</div>
+
+          <div class="inline-grid">
+            <label class="field-stack">
+              <span>Số tiền</span>
+              <input id="entryAmount" name="amount" type="number" min="1000" step="1000" placeholder="30000" required>
+            </label>
+            <label class="field-stack">
+              <span>Loại giao dịch</span>
+              <select id="entryType" name="type">
+                <option value="expense">Chi ra</option>
+                <option value="income">Thu vào</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="inline-grid">
+            <label class="field-stack">
+              <span>Danh mục</span>
+              <select id="entryCategory" name="category"></select>
+            </label>
+            <label class="field-stack">
+              <span>Ngày</span>
+              <input id="entryDate" name="date" type="date" required>
+            </label>
+          </div>
+
+          <label class="field-stack">
+            <span>Ghi chú</span>
+            <textarea id="entryNote" name="note" rows="4" placeholder="Ví dụ: ăn trưa cùng team, thanh toán qua ví điện tử..."></textarea>
+          </label>
+
+          <div class="card-actions">
+            <button class="primary-btn" type="submit">Lưu giao dịch</button>
+          </div>
+        </form>
+      </section>
+    </section>
+
+    <section class="screen history-screen" data-screen="history">
+      <header class="screen-header">
+        <div>
+          <p class="eyebrow">Lịch sử</p>
+          <h2>Dòng tiền đã ghi</h2>
+        </div>
+      </header>
+
+      <section class="card search-card">
+        <div class="filter-grid">
+          <label class="search-field">
+            <span>Tìm kiếm</span>
+            <input id="historySearch" type="search" placeholder="Tiền nhà, trà sữa, lương...">
+          </label>
+          <label class="field-stack">
+            <span>Loại</span>
+            <select id="historyType">
+              <option value="all">Tất cả</option>
+              <option value="expense">Chi ra</option>
+              <option value="income">Thu vào</option>
             </select>
           </label>
-        </div>
-
-        <div class="schedule-table-wrap glass-card">
-          <table class="schedule-table">
-            <thead>
-              <tr>
-                <th>Lớp</th>
-                <th>Thứ</th>
-                <th>Tiết</th>
-                <th>Môn học</th>
-                <th>Giáo viên</th>
-                <th>Phòng</th>
-              </tr>
-            </thead>
-            <tbody id="scheduleBody">
-              <tr data-class="10A1" data-teacher="Nguyễn Thị Lan">
-                <td>10A1</td>
-                <td>Thứ 2</td>
-                <td>1 - 3</td>
-                <td>Ngữ văn</td>
-                <td>Nguyễn Thị Lan</td>
-                <td>A201</td>
-              </tr>
-              <tr data-class="10A1" data-teacher="Trần Minh Quân">
-                <td>10A1</td>
-                <td>Thứ 4</td>
-                <td>4 - 5</td>
-                <td>Toán</td>
-                <td>Trần Minh Quân</td>
-                <td>A204</td>
-              </tr>
-              <tr data-class="11A2" data-teacher="Phạm Thu Hà">
-                <td>11A2</td>
-                <td>Thứ 3</td>
-                <td>1 - 2</td>
-                <td>Tiếng Anh</td>
-                <td>Phạm Thu Hà</td>
-                <td>B102</td>
-              </tr>
-              <tr data-class="11A2" data-teacher="Lê Hoàng Nam">
-                <td>11A2</td>
-                <td>Thứ 6</td>
-                <td>3 - 5</td>
-                <td>Vật lý</td>
-                <td>Lê Hoàng Nam</td>
-                <td>Lab 1</td>
-              </tr>
-              <tr data-class="12A3" data-teacher="Trần Minh Quân">
-                <td>12A3</td>
-                <td>Thứ 2</td>
-                <td>4 - 5</td>
-                <td>Toán</td>
-                <td>Trần Minh Quân</td>
-                <td>A305</td>
-              </tr>
-              <tr data-class="12A3" data-teacher="Nguyễn Thị Lan">
-                <td>12A3</td>
-                <td>Thứ 5</td>
-                <td>1 - 3</td>
-                <td>Ngữ văn</td>
-                <td>Nguyễn Thị Lan</td>
-                <td>A301</td>
-              </tr>
-            </tbody>
-          </table>
-          <p class="schedule-empty" id="scheduleEmpty" hidden>Không tìm thấy thời khóa biểu phù hợp với bộ lọc hiện tại.</p>
+          <label class="field-stack">
+            <span>Danh mục</span>
+            <select id="historyCategory"></select>
+          </label>
+          <label class="field-stack">
+            <span>Tháng</span>
+            <input id="historyMonth" type="month">
+          </label>
         </div>
       </section>
 
-      <section class="section news" id="thong-bao">
-        <div class="section-heading">
-          <p class="section-kicker">Thông báo</p>
-          <h2>Cập nhật dành cho học sinh và phụ huynh</h2>
-        </div>
-        <div class="news-list" data-post-list="3"></div>
-      </section>
-
-      <section class="section campus-map" id="so-do">
-        <div class="section-heading">
-          <p class="section-kicker">Khám phá trường</p>
-          <h2>Sơ đồ tương tác và thông tin cơ sở vật chất</h2>
-        </div>
-
-        <div class="campus-layout">
-          <div class="campus-zones glass-card">
-            <button class="zone-button active" data-zone="library-zone" type="button">Thư viện</button>
-            <button class="zone-button" data-zone="lab-zone" type="button">Phòng thí nghiệm</button>
-            <button class="zone-button" data-zone="sports-zone" type="button">Sân bóng</button>
-            <button class="zone-button" data-zone="hall-zone" type="button">Hội trường</button>
-          </div>
-
-          <div class="campus-preview glass-card">
-            <div class="zone-panel active" id="library-zone">
-              <div class="zone-image library-zone-image"></div>
-              <div class="zone-copy">
-                <h3>Thư viện trung tâm</h3>
-                <p>Khu tự học yên tĩnh, có góc tra cứu tài liệu và không gian đọc nhóm cho học sinh các khối.</p>
-              </div>
-            </div>
-
-            <div class="zone-panel" id="lab-zone">
-              <div class="zone-image lab-zone-image"></div>
-              <div class="zone-copy">
-                <h3>Phòng thí nghiệm</h3>
-                <p>Trang bị mô hình thực hành, thiết bị đo và khu thao tác giúp học sinh tiếp cận bài học trực quan.</p>
-              </div>
-            </div>
-
-            <div class="zone-panel" id="sports-zone">
-              <div class="zone-image sports-zone-image"></div>
-              <div class="zone-copy">
-                <h3>Sân bóng và khu thể chất</h3>
-                <p>Không gian rộng cho bóng đá, bóng chuyền và hoạt động ngoại khóa nâng cao thể lực.</p>
-              </div>
-            </div>
-
-            <div class="zone-panel" id="hall-zone">
-              <div class="zone-image hall-zone-image"></div>
-              <div class="zone-copy">
-                <h3>Hội trường đa năng</h3>
-                <p>Nơi diễn ra sinh hoạt toàn trường, chuyên đề hướng nghiệp, văn nghệ và các sự kiện lớn.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section gallery" id="thu-vien">
-        <div class="section-heading">
-          <p class="section-kicker">Thư viện ảnh</p>
-          <h2>Hình ảnh cơ sở vật chất và hoạt động học đường</h2>
-        </div>
-
-        <div class="gallery-grid masonry-grid">
-          <article class="gallery-card gallery-large glass-card">
-            <div class="gallery-image campus-main"></div>
-            <div class="gallery-copy">
-              <h3>Khuôn viên trường</h3>
-              <p>Không gian thoáng đãng, nhiều cây xanh và khu vực sinh hoạt chung dành cho học sinh.</p>
-            </div>
-          </article>
-
-          <article class="gallery-card glass-card">
-            <div class="gallery-image classroom"></div>
-            <div class="gallery-copy">
-              <h3>Phòng học</h3>
-              <p>Lớp học sáng, gọn gàng và phù hợp cho hoạt động dạy học hiện đại.</p>
-            </div>
-          </article>
-
-          <article class="gallery-card glass-card">
-            <div class="gallery-image library"></div>
-            <div class="gallery-copy">
-              <h3>Thư viện</h3>
-              <p>Khu vực đọc sách và tự học hỗ trợ học sinh tra cứu, nghiên cứu và ôn tập.</p>
-            </div>
-          </article>
-
-          <article class="gallery-card glass-card">
-            <div class="gallery-image activities"></div>
-            <div class="gallery-copy">
-              <h3>Hoạt động ngoại khóa</h3>
-              <p>Các chương trình văn nghệ, thể thao và câu lạc bộ tạo môi trường phát triển toàn diện.</p>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section admissions" id="tuyen-sinh">
-        <div class="admissions-box">
+      <section class="stack-section">
+        <div class="section-head">
           <div>
-            <p class="section-kicker">Tuyển sinh</p>
-            <h2>Chào đón học sinh khóa mới gia nhập THPT Hòa Phú</h2>
-            <p>
-              Nhà trường tiếp nhận hồ sơ theo kế hoạch năm học, hỗ trợ tư vấn về điều kiện xét tuyển,
-              thủ tục nhập học và các thông tin cần thiết cho phụ huynh.
-            </p>
-          </div>
-
-          <div class="admissions-steps">
-            <div class="step">
-              <span>01</span>
-              <p>Tìm hiểu thông tin và chuẩn bị hồ sơ</p>
-            </div>
-            <div class="step">
-              <span>02</span>
-              <p>Nộp hồ sơ theo hướng dẫn của nhà trường</p>
-            </div>
-            <div class="step">
-              <span>03</span>
-              <p>Hoàn tất thủ tục nhập học và nhận lớp</p>
-            </div>
+            <p class="eyebrow">Kết quả</p>
+            <h3>Danh sách giao dịch</h3>
           </div>
         </div>
+        <div class="feed-list" id="historyList"></div>
       </section>
-    </main>
+    </section>
 
-    <footer class="footer" id="lien-he">
-      <div class="footer-contact">
-        <p class="section-kicker">Liên hệ</p>
-        <h2>Trường Trung Học Phổ Thông Hòa Phú</h2>
-        <p>Địa chỉ: Hòa Phú, Việt Nam</p>
-        <p>Điện thoại: 0207 3852 341</p>
-        <p>Email: thcsthpthoaphu@example.edu.vn</p>
-
-        <div class="social-links">
-          <a href="#" aria-label="Facebook" class="ripple-btn">Facebook</a>
-          <a href="#" aria-label="YouTube" class="ripple-btn">YouTube</a>
-          <a href="#" aria-label="Zalo" class="ripple-btn">Zalo</a>
+    <section class="screen detail-screen" data-screen="detail">
+      <header class="screen-header">
+        <button class="back-btn" data-back-screen="history" type="button">Quay lại</button>
+        <div>
+          <p class="eyebrow">Chi tiết</p>
+          <h2>Thông tin giao dịch</h2>
         </div>
+      </header>
+      <div id="detailView"></div>
+    </section>
 
-        <div class="footer-links">
-          <a href="pages/tuyen-sinh.htm">Tuyển sinh</a>
-          <a href="pages/lich-cong-tac.htm">Lịch công tác</a>
-          <a href="pages/ban-giam-hieu.htm">Ban giám hiệu</a>
-          <a href="pages/van-ban.htm">Thư viện văn bản</a>
+    <section class="screen budget-screen" data-screen="budget">
+      <header class="screen-header">
+        <div>
+          <p class="eyebrow">Ngân sách</p>
+          <h2>Giới hạn theo danh mục</h2>
         </div>
-      </div>
+      </header>
+      <div id="budgetView"></div>
+    </section>
 
-      <div class="footer-map">
-        <div class="footer-note glass-card">
-          <p>Website giới thiệu nhà trường, phục vụ tra cứu thông tin cơ bản cho học sinh và phụ huynh.</p>
+    <section class="screen insights-screen" data-screen="insights">
+      <header class="screen-header">
+        <div>
+          <p class="eyebrow">Thống kê</p>
+          <h2>Biểu đồ và xu hướng</h2>
         </div>
-        <div class="map-card glass-card">
-          <p class="map-label">Bản đồ</p>
-          <div class="map-embed">
-            <iframe
-              src="https://www.google.com/maps?q=22.1130231,105.1869794+(Tr%C6%B0%E1%BB%9Dng+THPT+H%C3%B2a+Ph%C3%BA)&z=17&output=embed"
-              width="100%"
-              height="260"
-              style="border:0;"
-              allowfullscreen=""
-              loading="lazy"
-              referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+      </header>
+      <div id="insightView"></div>
+    </section>
+
+    <section class="screen settings-screen" data-screen="settings">
+      <header class="screen-header">
+        <div>
+          <p class="eyebrow">Cài đặt</p>
+          <h2>Dữ liệu và giao diện</h2>
+        </div>
+      </header>
+      <div id="settingsView"></div>
+    </section>
+
+    <section class="screen chat-screen" data-screen="chat">
+      <header class="screen-header">
+        <div>
+          <p class="eyebrow">Cubi Chat</p>
+          <h2>Trò chuyện với Cubi</h2>
+        </div>
+        <button class="icon-btn" data-open-screen="settings" type="button">Cài đặt</button>
+      </header>
+
+      <div class="chat-container">
+        <div class="chat-messages" id="chatMessages"></div>
+
+        <div class="chat-input-container">
+          <div class="quick-chip-row" id="chatPromptChips">
+            <button class="quick-chip" data-chat-prompt="Chào Cubi nha" type="button">Chào Cubi</button>
+            <button class="quick-chip" data-chat-prompt="Nói chuyện với mình dễ thương chút đi" type="button">Nói chuyện chút</button>
+            <button class="quick-chip" data-chat-prompt="Gợi ý cho mình cách tiết kiệm tiền trong tháng này" type="button">Gợi ý tiết kiệm</button>
+            <button class="quick-chip" data-chat-prompt="Mở nhạc chill cho mình đi" type="button">Mở nhạc chill</button>
           </div>
+          <form id="chatForm" class="chat-form">
+            <input id="chatInput" type="text" placeholder="Ví dụ: Cubi ơi, hôm nay nói chuyện với mình chút..." required>
+            <button type="submit" class="primary-btn">Gửi</button>
+          </form>
         </div>
       </div>
-    </footer>
-  </div>
-  <script type="module" src="assets/js/script.js"></script>
+    </section>
+
+    <nav class="bottom-nav" id="bottomNav">
+      <button class="nav-item is-active" data-open-screen="home" type="button">Tổng quan</button>
+      <button class="nav-item" data-open-screen="add" type="button">Thêm</button>
+      <button class="nav-item" data-open-screen="history" type="button">Lịch sử</button>
+      <button class="nav-item" data-open-screen="budget" type="button">Ngân sách</button>
+      <button class="nav-item" data-open-screen="chat" type="button">AI Chat</button>
+    </nav>
+  </main>
 </body>
 </html>

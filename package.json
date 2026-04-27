@@ -1,0 +1,24 @@
+{
+  "name": "vi-rieng",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ứng dụng quản lý tài chính cá nhân.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "build:web": "powershell -ExecutionPolicy Bypass -File scripts/build-web.ps1",
+    "cap:sync": "npm run build:web && npx cap sync android",
+    "cap:open": "npx cap open android",
+    "android:debug": "npm run build:web && cd android && gradlew.bat assembleDebug"
+  },
+  "dependencies": {
+    "@capacitor/android": "^7.6.2",
+    "@capacitor/cli": "^7.6.2",
+    "@capacitor/core": "^7.6.2",
+    "@google/generative-ai": "^0.21.0",
+    "soundcloud-downloader": "^1.0.0"
+  },
+  "devDependencies": {
+    "jsdom": "^29.0.2"
+  }
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Ví Riêng</string>
+    <string name="title_activity_main">Ví Riêng</string>
+    <string name="package_name">com.vietle.app</string>
+    <string name="custom_url_scheme">com.vietle.app</string>
+</resources>
