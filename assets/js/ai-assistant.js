@@ -1,6 +1,7 @@
 (function () {
   const CHAT_STORAGE_KEY = "virieng.cubi-chat-history";
   const MAX_MESSAGES = 14;
+  const DEFAULT_PRODUCTION_API_BASE_URL = "https://web-xcvk.onrender.com";
 
   const selectors = {
     messages: "#chatMessages",
@@ -23,8 +24,7 @@
     window.location.protocol === "file:";
 
   const getDefaultNativeApiBaseUrl = () => {
-    const userAgent = navigator.userAgent || "";
-    return /Android/i.test(userAgent) ? "http://10.0.2.2:3000" : "http://localhost:3000";
+    return DEFAULT_PRODUCTION_API_BASE_URL;
   };
 
   const getConfiguredApiBaseUrl = () => {
@@ -53,7 +53,7 @@
   };
 
   const createBackendConnectionError = () => {
-    const apiBaseUrl = getConfiguredApiBaseUrl() || "http://localhost:3000";
+    const apiBaseUrl = getConfiguredApiBaseUrl() || DEFAULT_PRODUCTION_API_BASE_URL;
     return new Error(
       `Cubi chua noi duoc backend. Hay bat server va kiem tra ket noi toi ${apiBaseUrl}. Neu dang test may that Android thi chay them adb reverse tcp:3000 tcp:3000.`
     );
