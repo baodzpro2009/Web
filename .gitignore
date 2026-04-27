@@ -1,5 +1,6 @@
 apikey.json
 .env
+.render.env
 node_modules/
 dist/
 build/

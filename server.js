@@ -183,6 +183,39 @@ const pickApiKey = () => {
   return keys[randomIndex];
 };
 
+const toFriendlyChatError = (error) => {
+  const rawMessage = String(error?.message || "").trim();
+  const normalizedMessage = rawMessage.toLowerCase();
+
+  if (!rawMessage) {
+    return "Cubi dang bi nghen ti, ban thu lai sau nhe.";
+  }
+
+  if (normalizedMessage.includes("chua cau hinh api key gemini")) {
+    return "Backend chua co GEMINI_API_KEY hoac GEMINI_API_KEYS tren Render.";
+  }
+
+  if (
+    /api key not valid|invalid api key|permission denied|unauthenticated|forbidden|403/.test(normalizedMessage)
+  ) {
+    return "Gemini API key khong hop le, bi chan, hoac da het quyen.";
+  }
+
+  if (/quota|rate limit|resource exhausted|429|too many requests/.test(normalizedMessage)) {
+    return "Gemini dang het quota hoac bi gioi han tam thoi. Ban thu lai sau nhe.";
+  }
+
+  if (/model .*not found|unsupported model|404/.test(normalizedMessage)) {
+    return "Model Gemini dang cau hinh khong hop le hoac khong con ho tro.";
+  }
+
+  if (/fetch failed|network|socket|econnreset|enotfound|timed out|timeout/.test(normalizedMessage)) {
+    return "Backend chua noi duoc toi Gemini. Kiem tra lai ket noi cua Render.";
+  }
+
+  return "Cubi dang bi nghen ti, ban thu lai sau nhe.";
+};
+
 const createChatPrompt = (messages, latestMessage) => {
   const normalizedHistory = Array.isArray(messages)
     ? messages
@@ -242,7 +275,7 @@ const handleChatApi = async (req, res) => {
     console.error("Chat API error:", error);
     const status = error.message === "Payload too large" ? 413 : 500;
     sendJson(res, status, {
-      error: "Cubi dang bi nghen ti, ban thu lai sau nhe."
+      error: toFriendlyChatError(error)
     });
   }
 };
@@ -373,9 +406,11 @@ const startServer = (port) => {
 
   server.listen(port, () => {
     const originInfo = getAllowedOrigins().join(", ");
+    const apiKeyCount = loadApiKeys().length;
     console.log(`Static server running at http://localhost:${port}`);
     console.log(`Static root: ${STATIC_ROOT}`);
     console.log(`CORS allow origin: ${originInfo}`);
+    console.log(`Gemini API keys loaded: ${apiKeyCount}`);
   });
 };
 
